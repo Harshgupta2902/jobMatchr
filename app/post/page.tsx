@@ -11,7 +11,7 @@ function page() {
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
-      router.push("https://jobfindr-q1cl.onrender.com/login");
+      router.push("https://jobmatchr-api.onrender.com/login");
     }
   }, [isAuthenticated]);
   return (
