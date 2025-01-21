@@ -9,7 +9,6 @@ import React, { useEffect } from "react";
 import { Separator } from "../ui/separator";
 import formatMoney from "@/utils/formatMoney";
 import { formatDates } from "@/utils/fotmatDates";
-import { bookmark, bookmarkEmpty } from "@/utils/Icons";
 
 interface JobProps {
   job: Job;
@@ -32,7 +31,6 @@ function JobCard({ job, activeJob }: JobProps) {
     createdAt,
   } = job;
 
-  const { name, profilePicture } = createdBy;
 
   const router = useRouter();
 
@@ -79,8 +77,8 @@ function JobCard({ job, activeJob }: JobProps) {
         >
           <div className="w-12 h-12 bg-gray-200 rounded-md flex items-center justify-center">
             <Image
-              src={profilePicture || "/user.png"}
-              alt={name || "User"}
+              src={"/user.png"}
+              alt={ "User"}
               width={40}
               height={40}
               className="rounded-md"
@@ -90,7 +88,7 @@ function JobCard({ job, activeJob }: JobProps) {
           <div className="flex flex-col gap-1">
             <h4 className="group-hover:underline font-bold">{title}</h4>
             <p className="text-xs">
-              {name}: {applicants.length}{" "}
+              {"Admin"}: {applicants.length}{" "}
               {applicants.length > 1 ? "Applicants" : "Applicant"}
             </p>
           </div>
@@ -101,12 +99,12 @@ function JobCard({ job, activeJob }: JobProps) {
             isLiked ? "text-[#7263f3]" : "text-gray-400"
           } `}
           onClick={() => {
-            isAuthenticated
-              ? handleLike(job._id)
-              : router.push("https://jobmatchr-api.onrender.com/login");
+            handleLike(job._id)
+            // isAuthenticated
+            //   ? handleLike(job._id)
+            //   : router.push("https://jobmatchr-api.onrender.com/login");
           }}
         >
-          {isLiked ? bookmark : bookmarkEmpty}
         </button>
       </div>
 

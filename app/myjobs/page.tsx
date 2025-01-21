@@ -10,20 +10,20 @@ import React, { useEffect } from "react";
 
 function page() {
   const { userJobs, jobs } = useJobsContext();
-  const { isAuthenticated, loading, userProfile } = useGlobalContext();
+  const { loading, userProfile } = useGlobalContext();
 
   const [activeTab, setActiveTab] = React.useState("posts");
 
   const userId = userProfile?._id;
 
-  const router = useRouter();
+  // const router = useRouter();
 
   // Redirect to login if not authenticated
-  useEffect(() => {
-    if (!loading && !isAuthenticated) {
-      router.push("https://jobmatchr-api.onrender.com/login");
-    }
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if (!loading && !isAuthenticated) {
+  //     router.push("https://jobmatchr-api.onrender.com/login");
+  //   }
+  // }, [isAuthenticated]);
 
   const likedJobs = jobs.filter((job: Job) => {
     return job.likes.includes(userId);

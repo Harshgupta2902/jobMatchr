@@ -1,19 +1,19 @@
 "use client";
 import Header from "@/Components/Header";
 import JobForm from "@/Components/JobPost/JobForm";
-import { useGlobalContext } from "@/context/globalContext";
-import { useRouter } from "next/navigation";
+// import { useGlobalContext } from "@/context/globalContext";
+// import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 function page() {
-  const { isAuthenticated, loading } = useGlobalContext();
-  const router = useRouter();
+  // const { isAuthenticated, loading } = useGlobalContext();
+  // const router = useRouter();
 
-  useEffect(() => {
-    if (!loading && !isAuthenticated) {
-      router.push("https://jobmatchr-api.onrender.com/login");
-    }
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if (!loading && !isAuthenticated) {
+  //     router.push("https://jobmatchr-api.onrender.com/login");
+  //   }
+  // }, [isAuthenticated]);
   return (
     <div className="flex flex-col">
       <Header />

@@ -10,7 +10,6 @@ import { Button } from "../ui/button";
 import { Pencil, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useGlobalContext } from "@/context/globalContext";
-import { bookmark, bookmarkEmpty } from "@/utils/Icons";
 
 interface JobProps {
   job: Job;
@@ -69,12 +68,12 @@ function MyJob({ job }: JobProps) {
             isLiked ? "text-[#7263f3]" : "text-gray-400"
           } `}
           onClick={() => {
-            isAuthenticated
-              ? handleLike(job._id)
-              : router.push("https://jobmatchr-api.onrender.com/login");
+            handleLike(job._id)
+            // isAuthenticated
+            //   ? handleLike(job._id)
+            //   : router.push("https://jobmatchr-api.onrender.com/login");
           }}
         >
-          {isLiked ? bookmark : bookmarkEmpty}
         </button>
       </div>
       <div>

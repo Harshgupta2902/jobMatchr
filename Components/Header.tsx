@@ -52,7 +52,7 @@ function Header() {
         </li>
       </ul>
 
-      <div className="flex items-center gap-4">
+      {/* <div className="flex items-center gap-4">
         {isAuthenticated ? (
           <Profile />
         ) : (
@@ -73,7 +73,7 @@ function Header() {
             </Link>
           </div>
         )}
-      </div>
+      </div> */}
     </header>
   );
 }

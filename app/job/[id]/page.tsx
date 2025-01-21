@@ -7,18 +7,15 @@ import { useJobsContext } from "@/context/jobsContext";
 import { Job } from "@/types/types";
 import formatMoney from "@/utils/formatMoney";
 import { formatDates } from "@/utils/fotmatDates";
-import { Bookmark } from "lucide-react";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import toast from "react-hot-toast";
-import { bookmark, bookmarkEmpty } from "@/utils/Icons";
 
 function page() {
   const { jobs, likeJob, applyToJob } = useJobsContext();
-  const { userProfile, isAuthenticated } = useGlobalContext();
+  const { userProfile } = useGlobalContext();
   const params = useParams();
-  const router = useRouter();
   const { id } = params;
 
   const [isLiked, setIsLiked] = React.useState(false);
@@ -54,7 +51,6 @@ function page() {
     negotiable,
   } = job;
 
-  const { name, profilePicture } = createdBy;
 
   const handleLike = (id: string) => {
     setIsLiked((prev) => !prev);
@@ -80,8 +76,8 @@ function page() {
               <div className="flex items-center gap-2">
                 <div className="w-14 h-14 relative overflow-hidden rounded-md flex items-center justify-center bg-gray-200">
                   <Image
-                    src={profilePicture || "/user.png"}
-                    alt={name || "User"}
+                    src={"/user.png"}
+                    alt={ "Admin"}
                     width={45}
                     height={45}
                     className="rounded-md"
@@ -89,7 +85,7 @@ function page() {
                 </div>
 
                 <div>
-                  <p className="font-bold">{name}</p>
+                  <p className="font-bold">{`Admin`}</p>
                   <p className="text-sm">Recruiter</p>
                 </div>
               </div>
@@ -98,12 +94,13 @@ function page() {
                   isLiked ? "text-[#7263f3]" : "text-gray-400"
                 }`}
                 onClick={() => {
-                  isAuthenticated
-                    ? handleLike(job._id)
-                    : router.push("https://jobmatchr-api.onrender.com/login");
+                  // isAuthenticated
+                  //   ? 
+                    handleLike(job._id)
+                    // : router.push("https://jobmatchr-api.onrender.com/login");
                 }}
               >
-                {isLiked ? bookmark : bookmarkEmpty}
+               
               </button>
             </div>
 
@@ -168,16 +165,16 @@ function page() {
               isApplied ? "bg-green-500" : "bg-[#7263f3]"
             }`}
             onClick={() => {
-              if (isAuthenticated) {
+              // if (isAuthenticated) {
                 if (!isApplied) {
                   applyToJob(job._id);
                   setIsApplied(true);
                 } else {
                   toast.error("You have already applied to this job");
                 }
-              } else {
-                router.push("https://jobmatchr-api.onrender.com/login");
-              }
+              // } else {
+              //   router.push("https://jobmatchr-api.onrender.com/login");
+              // }
             }}
           >
             {isApplied ? "Applied" : "Apply Now"}
