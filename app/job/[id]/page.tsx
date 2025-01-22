@@ -72,7 +72,7 @@ function page() {
 
         <div className="flex-1 bg-white p-6 rounded-md">
           <div className="flex flex-col gap-2">
-            <div className="flex justify-between items-center">
+            <div className="flex  justify-between items-center">
               <div className="flex items-center gap-2">
                 <div className="w-14 h-14 relative overflow-hidden rounded-md flex items-center justify-center bg-gray-200">
                   <Image

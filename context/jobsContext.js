@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 
 const JobsContext = createContext();
 
-axios.defaults.baseURL = "https://jobmatchr-api.onrender.com/";
+axios.defaults.baseURL = "https://job-matchr-api.vercel.app/";
+// axios.defaults.baseURL = "https://jobmatchr-api.onrender.com/";
 // axios.defaults.baseURL = "http://localhost:8000/";
-axios.defaults.withCredentials = true;
 
 export const JobsContextProvider = ({ children }) => {
   const { userProfile, getUserProfile } = useGlobalContext();

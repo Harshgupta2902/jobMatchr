@@ -29,7 +29,7 @@ function Header() {
           >
             Find Work
           </Link>
-          <Link
+          {/* <Link
             href={"/myjobs"}
             className={`py-2 px-6 rounded-md ${
               pathname === "/myjobs"
@@ -38,7 +38,7 @@ function Header() {
             }`}
           >
             My Jobs
-          </Link>
+          </Link> */}
           <Link
             href={"/post"}
             className={`py-2 px-6 rounded-md ${
